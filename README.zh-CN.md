@@ -4,19 +4,11 @@
  <p align="center">Principle of WinRAR key generation</p>
 </p>
 <p align="center">
-  <a href="https://github.com/bitcookies/winrar-keygen/releases">
-  	<img src="https://img.shields.io/github/v/release/bitcookies/winrar-keygen?label=version" />
-  </a>
-  <a href="https://github.com/bitcookies/winrar-keygen/issues">
-  	<img alt="Issues" src="https://img.shields.io/github/issues/bitcookies/winrar-keygen?color=F48D73" />
-  </a>
-  <img src="https://img.shields.io/badge/Visual%20Studio-2022-5D4298" />
-  <a href="https://github.com/bitcookies/winrar-keygen/actions">
-      <img src="https://github.com/bitcookies/winrar-keygen/actions/workflows/keygen.yml/badge.svg" />
-  </a>
-  <a href="https://github.com/bitcookies/winrar-keygen/blob/master/LICENSE">
-  	<img alt="License" src="https://img.shields.io/github/license/bitcookies/winrar-keygen.svg" />
-  </a>
+  <a href="https://github.com/bitcookies/winrar-keygen/releases"><img src="https://img.shields.io/github/v/release/bitcookies/winrar-keygen?label=version" /></a>
+  <a href="https://github.com/bitcookies/winrar-keygen/issues"><img alt="Issues" src="https://img.shields.io/github/issues/bitcookies/winrar-keygen?color=F48D73" /></a>
+  <img src="https://img.shields.io/badge/Visual%20Studio-2022-5D4298?logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNzI4MTA5NjA3MzUyIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjYxMjAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiPjxwYXRoIGQ9Ik03MTguOTMzMzMzIDg1LjMzMzMzM0wzODcuODQgNDE2Ljg1MzMzM2wtMjA5LjA2NjY2Ny0xNjQuNjkzMzMzTDg3LjQ2NjY2NyAyOTguNjY2NjY3djQyNi42NjY2NjZsOTEuNzMzMzMzIDQ2LjUwNjY2NyAyMTAuMzQ2NjY3LTE2NC4yNjY2NjdMNzE5Ljc4NjY2NyA5MzguNjY2NjY3IDkzOC42NjY2NjcgODUwLjM0NjY2N1YxNzAuNjY2NjY3ek0xODYuNDUzMzMzIDYxMC4xMzMzMzNWNDExLjczMzMzM2wxMDQuMTA2NjY3IDEwMy42OHogbTUyNi4wOCA1NS4wNEw1MTQuMTMzMzMzIDUxMmwxOTguNC0xNTMuMTczMzMzeiIgcC1pZD0iNjEyMSIgZmlsbD0iIzk1OWRhNSI+PC9wYXRoPjwvc3ZnPg==" />
+  <a href="https://github.com/bitcookies/winrar-keygen/actions"><img src="https://github.com/bitcookies/winrar-keygen/actions/workflows/keygen.yml/badge.svg" /></a>
+  <a href="https://github.com/bitcookies/winrar-keygen/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/bitcookies/winrar-keygen.svg" /></a>
 </p>
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> | <a href="README.md">English</a>
@@ -359,21 +351,37 @@ winrar-keygen.exe "utf8:Github" "Github.com" | Out-File -Encoding utf8 rarreg.ke
 
 感谢 [@hoochanlon](https://github.com/hoochanlon) 提供的一些方法。可以使用 [win-rar-extractor](https://github.com/lvtx/WinRAR-Extractor) 获取简体中文商业版的下载连接；也可以根据商业版的地址规律，获取相应版本的简体中文安装包：
 
-简体中文**商业版**（以 6.11 版本为例）：
+简体中文**商业版**（以 `6.24` 和`7.01` 以及 `7.10` 和 `7.11` 版本为例）：
+
+```
+# 6.24
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20231013/wrr/winrar-x32-624sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20231013/wrr/winrar-x64-624sc.exe
+
+# 7.01
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20240528/wrr/winrar-x32-701sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20240528/wrr/winrar-x64-701sc.exe
+
+# 注意：自 7.10 版之后，日期格式调整为 YYYYDDMM
+# 7.10
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20251003/rrlb/winrar-x64-710sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20251003/wrr/winrar-x64-710sc.exe
+
+# 7.11
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20253103/rrlb/winrar-x64-711sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20253103/wrr/winrar-x64-711sc.exe
+```
+
+简体中文**广告版**（以 `6.24` 版本为例），不要下载此类版本：
 
 ```
 win-rar 渠道：
-https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20220317/rrlb/winrar-x64-611sc.exe
-```
-
-简体中文**广告版**（以 6.11 版本为例）：
-
-```
-win-rar 渠道：
-https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-611sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x32-624sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-624sc.exe
 
 rarlab 渠道：
-https://www.rarlab.com/rar/winrar-x64-611sc.exe
+https://www.rarlab.com/rar/winrar-x32-624sc.exe
+https://www.rarlab.com/rar/winrar-x64-624sc.exe
 ```
 
 请注意区分上述连接地址，更多方法可以查看 [Issues #14](https://github.com/bitcookies/winrar-keygen/issues/14) 和 [Issues #19](https://github.com/bitcookies/winrar-keygen/issues/19)。
