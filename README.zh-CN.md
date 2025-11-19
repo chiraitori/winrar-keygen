@@ -39,7 +39,7 @@ WinRAR 不是免费软件。如果你想使用它，你应当向 [__RARLAB__](ht
 
 ### 3.1 编码说明
 
-WinRAR Keygen 支持 `ASCII`、`ANSI` 和 `UTF-8` 三种编码类型，对应支持的字符如下表：
+WinRAR Keygen 支持 `ASCII`、`ANSI` 和 `UTF8NoBOM` 三种编码类型，对应支持的字符如下表：
 
 > [!NOTE]
 > 默认使用 `utf8`，但是你也可以指定编码为 `ascii` 或 `ansi`。
@@ -48,7 +48,7 @@ WinRAR Keygen 支持 `ASCII`、`ANSI` 和 `UTF-8` 三种编码类型，对应支
 | -------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [ascii](https://en.wikipedia.org/wiki/ASCII) | 仅支持 ASCII 编码字符                                        | <img width="300px" src="assets/ascii-characters-light.svg#gh-light-mode-only"><img width="300px" src="assets/ascii-characters-dark.svg#gh-dark-mode-only"> |
 | ansi                                         | 没有一种固定的 ANSI 编码，通常是 [Windows-1252](http://en.wikipedia.org/wiki/Windows-1252)，但也可以是其他本地 | <img width="300px" src="assets/windows-1252-characters-light.svg#gh-light-mode-only"><img width="300px" src="assets/windows-1252-characters-dark.svg#gh-dark-mode-only"> |
-| [utf8](https://en.wikipedia.org/wiki/UTF-8)  | 支持 UTF-8 编码字符                                          | ASCII characters, English, 简体中文, 繁體中文, Deutsch, Français, Русский, Italiano, 日本語, 한국어, Lengua española, Ελληνική γλώσσα 等。 |
+| [utf8](https://en.wikipedia.org/wiki/UTF-8)  | 支持无 BOM 的 UTF-8                                          | ASCII characters, English, 简体中文, 繁體中文, Deutsch, Français, Русский, Italiano, 日本語, 한국어, Lengua española, Ελληνική γλώσσα 等。 |
 
 ### 3.2 License 类型
 
@@ -206,15 +206,16 @@ C:\Users\yourname\AppData\Roaming\WinRAR\rarreg.key
 
 2. 请确保你安装了 `vcpkg` 以及下面几个库：
 
-   - `mpir:x86-windows-static`
-
-   * `mpir:x64-windows-static`
+   + `mpir:x86-windows-static`
+   + `mpir:x64-windows-static`
+   + `mpir:gmp:x64-windows`
 
    你可以通过下的命令来安装：
 
    ```shell
    $ vcpkg install mpir:x86-windows-static
    $ vcpkg install mpir:x64-windows-static
+   $ vcpkg install gmp:x64-windows
    ```
 
 3. 你的 `vcpkg` 与 __Visual Studio__ 整合了，即你曾成功运行了下面这条命令：
@@ -235,7 +236,7 @@ C:\Users\yourname\AppData\Roaming\WinRAR\rarreg.key
 
 直接在终端执行以下代码，配置两个参数即可生成 `rarreg.key`。
 
-这里以 `Github` 和 `Single PC usage license` 用 ASCII 编码为例：
+这里以 `Github` 和 `Single PC usage license` 参数和 ASCII 编码为例：
 
 ```shell
 Usage:
@@ -244,9 +245,6 @@ Usage:
 Example:
 
         winrar-keygen.exe "Github" "Single PC usage license"
-
-  or:
-        winrar-keygen.exe "Github" "Github.com" | Out-File -Encoding ASCII rarreg.key
 ```
 
 ![Terminal](assets/terminal.png)
@@ -267,46 +265,24 @@ dd4ab952600ba16a99236d910bfa995d5f60651ec451f462511507
 5eede7ed46566b10bf033daa6384062b259194b1acbd0378116064
 ```
 
-将生成的信息以 **ANSI 编码** 的文本格式保存为 `rarreg.key`。
+将生成的信息以 **ASCII 编码** 的文本格式保存为 `rarreg.key`。
 
-### 6.4 多语言的支持
+### 6.4 支持更多字符
 
-使用 ANSI 编码时，你只能使用你操作系统所在国家或地区的字符。ANSI 编码从 Powershell 7.4 以后开始支持，你还需要[升级你的 Powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4)。
+除了使用 ASCII 编码，你还可以使用 ANSI 和 UTF8NoBOM 以支持更多字符，但你需要[安装 PowerShell 7.4 及其后续版本](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4)。
 
-用 ANSI 编码生成多语言的 license：
-
-```shell
-winrar-keygen.exe "简体中文" "license" | Out-File -Encoding ansi rarreg.key
-
-winrar-keygen.exe "繁體中文" "license" | Out-File -Encoding ansi rarreg.key
-
-winrar-keygen.exe "Deutsch" "license" | Out-File -Encoding ansi rarreg.key
-
-winrar-keygen.exe "Français" "license" | Out-File -Encoding ansi rarreg.key
-
-winrar-keygen.exe "日本語" "license" | Out-File -Encoding ansi rarreg.key
-
-winrar-keygen.exe "한국어" "license" | Out-File -Encoding ansi rarreg.key
-```
-
-使用 UTF-8 编码生成多语言的 license 时，你可能需要在 “控制面板 > 时钟和区域 > 区域 > 管理 > 更改系统区域设置” 中勾选使用 “[Beta版:使用Unicode UTF-8提供全球语言支持](https://stackoverflow.com/a/57134096/10242225)” 才能正确的处理数据。但是不建议你这么操作，这可能会导致很多软件无法正常运行，建议[使用 Github Actions](#4-使用-Github-Actions)。
-
-用 UTF-8 编码生成多语言的 license：
+例如，用 UTF8NoBOM 编码生成 license：
 
 > `utf8:` 是为了保证在不同语言的 WinRAR 中做到不变的字符表示。
 
 ```shell
-winrar-keygen.exe "utf8:简体中文" "license" | Out-File -Encoding utf8 rarreg.key
+./winrar-keygen.exe "utf8:简体中文" "license" | Out-File -Encoding UTF8NoBOM rarreg.key
 
-winrar-keygen.exe "utf8:繁體中文" "license" | Out-File -Encoding utf8 rarreg.key
+./winrar-keygen.exe "utf8:Français" "license" | Out-File -Encoding UTF8NoBOM rarreg.key
 
-winrar-keygen.exe "utf8:Deutsch" "license" | Out-File -Encoding utf8 rarreg.key
+./winrar-keygen.exe "utf8:日本語" "license" | Out-File -Encoding UTF8NoBOM rarreg.key
 
-winrar-keygen.exe "utf8:Français" "license" | Out-File -Encoding utf8 rarreg.key
-
-winrar-keygen.exe "utf8:日本語" "license" | Out-File -Encoding utf8 rarreg.key
-
-winrar-keygen.exe "utf8:한국어" "license" | Out-File -Encoding utf8 rarreg.key
+./winrar-keygen.exe "utf8:한국어" "license" | Out-File -Encoding UTF8NoBOM rarreg.key
 ```
 
 </details>
@@ -320,7 +296,7 @@ winrar-keygen.exe "utf8:한국어" "license" | Out-File -Encoding utf8 rarreg.ke
 参数 `TEXT1` 和 `TEXT2` 需要满足[对应的编码要求](#31-编码说明)：
 
 ```console
-winrar-keygen.exe <TEXT1> <TEXT2>
+./winrar-keygen.exe <TEXT1> <TEXT2>
 ```
 
 具体可参考原理文档：[授权文件"rarreg.key"的生成](https://github.com/bitcookies/winrar-keygen/blob/master/README.HOW_DOES_IT_WORK.zh-CN.md#7-%E6%8E%88%E6%9D%83%E6%96%87%E4%BB%B6rarregkey%E7%9A%84%E7%94%9F%E6%88%90)
@@ -330,19 +306,19 @@ winrar-keygen.exe <TEXT1> <TEXT2>
 如果你使用了如下命令：
 
 ```shell
-winrar-keygen.exe "Github" "Single PC usage license" > rarreg.key
+./winrar-keygen.exe "Github" "Single PC usage license" > rarreg.key
 ```
 
-在较新的 Windows 10 系统中，PowerShell 将默认以 **UTF16-LE** 格式导出，这将会导致错误。
+在较新的 Windows 10 / 11 系统中，PowerShell 将默认以 **UTF16-LE** 格式导出，这将会导致错误。
 
 请指定输出编码格式，例如：
 
 ```shell
-winrar-keygen.exe "Github" "Github.com" | Out-File -Encoding ascii rarreg.key
+./winrar-keygen.exe "Github" "license" | Out-File -Encoding ascii rarreg.key
 
-winrar-keygen.exe "Github" "Github.com" | Out-File -Encoding ansi rarreg.key
+./winrar-keygen.exe "Github" "license" | Out-File -Encoding ansi rarreg.key
 
-winrar-keygen.exe "utf8:Github" "Github.com" | Out-File -Encoding utf8 rarreg.key
+./winrar-keygen.exe "utf8:Github" "license" | Out-File -Encoding UTF8NoBOM rarreg.key
 ```
 
 ### 7.3 关于简体中文版
@@ -351,30 +327,36 @@ winrar-keygen.exe "utf8:Github" "Github.com" | Out-File -Encoding utf8 rarreg.ke
 
 感谢 [@hoochanlon](https://github.com/hoochanlon) 提供的一些方法。可以使用 [win-rar-extractor](https://github.com/lvtx/WinRAR-Extractor) 获取简体中文商业版的下载连接；也可以根据商业版的地址规律，获取相应版本的简体中文安装包：
 
-简体中文**商业版**（以 `6.24` 和`7.01` 以及 `7.10` 和 `7.11` 版本为例）：
+简体中文 **「商业版」** 下载地址：
 
 ```
+# 7.13
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20250804/rrlb/winrar-x64-713sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20250804/wrr/winrar-x64-713sc.exe
+
+# 7.12
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20250627/rrlb/winrar-x64-712sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20250627/wrr/winrar-x64-712sc.exe
+
+# 7.11 （注意该版本的日期格式变更为了 YYYYDDMM）
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20253103/rrlb/winrar-x64-711sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20253103/wrr/winrar-x64-711sc.exe
+
+# 7.10 （注意该版本的日期格式变更为了 YYYYDDMM）
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20251003/rrlb/winrar-x64-710sc.exe
+https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20251003/wrr/winrar-x64-710sc.exe
+
 # 6.24
 https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20231013/wrr/winrar-x32-624sc.exe
 https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20231013/wrr/winrar-x64-624sc.exe
 
-# 7.01
-https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20240528/wrr/winrar-x32-701sc.exe
-https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20240528/wrr/winrar-x64-701sc.exe
-
-# 注意：自 7.10 版之后，日期格式调整为 YYYYDDMM
-# 7.10
-https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20251003/rrlb/winrar-x64-710sc.exe
-https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20251003/wrr/winrar-x64-710sc.exe
-
-# 7.11
-https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20253103/rrlb/winrar-x64-711sc.exe
-https://www.win-rar.com/fileadmin/winrar-versions/sc/sc20253103/wrr/winrar-x64-711sc.exe
 ```
 
-简体中文**广告版**（以 `6.24` 版本为例），不要下载此类版本：
+简体中文 **「广告版」** （以 `6.24` 版本为例），不要下载此类版本：
 
 ```
+# 其链接特点是「不包含」日期信息
+
 win-rar 渠道：
 https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x32-624sc.exe
 https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-624sc.exe
